@@ -22,8 +22,7 @@ const team = [
     eyebrowClasses: 'text-primary-700 bg-primary-50 border-primary-200',
     location: 'Saran (Chapra), Bihar',
     tags: ['Income Tax Law', 'GST Advisory', 'Legal Consultancy'],
-    image:
-      'https://sarantaxsolution.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-31-at-7.03.40-PM.jpeg',
+    image: '/shivam-srivastava.jpg',
     avatarGradient: 'from-primary-500 to-primary-700',
     pillClasses: [
       'bg-primary-50 border-primary-200 text-primary-700',
@@ -44,8 +43,7 @@ const team = [
     eyebrowClasses: 'text-emerald-700 bg-emerald-50 border-emerald-200',
     location: 'Saran (Chapra), Bihar',
     tags: ['GST & TDS', 'Payroll Expert', 'Zoho & Tally'],
-    image:
-      'https://sarantaxsolution.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-31-at-6.34.07-PM.jpeg',
+    image: '/intesar-alam.jpg',
     avatarGradient: 'from-emerald-500 to-emerald-700',
     pillClasses: [
       'bg-emerald-50 border-emerald-200 text-emerald-700',
