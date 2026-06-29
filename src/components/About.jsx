@@ -75,7 +75,7 @@ export default function OurTeam() {
   return (
     <>
       {/* Page Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section id="about" className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-blue-400/15 rounded-full blur-[120px]"

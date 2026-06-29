@@ -39,25 +39,26 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#home"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2.5 sm:gap-3 group min-w-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-white shadow-lg shadow-primary-500/20 group-hover:shadow-primary-500/40 transition-shadow duration-300 flex-shrink-0">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-white shadow-lg shadow-primary-500/20 group-hover:shadow-primary-500/40 transition-shadow duration-300 flex-shrink-0">
               <img
                 src="/logo.png"
                 alt="Saran Tax Solution"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="text-base font-display font-bold text-dark-900 tracking-tight whitespace-nowrap">
+            <div className="flex flex-col leading-none min-w-0">
+              <span className="text-sm sm:text-base font-display font-bold text-dark-900 tracking-tight whitespace-nowrap">
                 Saran Tax Solution
               </span>
-              <span className="text-[10px] font-medium text-primary-600 uppercase tracking-[0.18em] mt-1">
+              <span className="hidden sm:block text-[10px] font-medium text-primary-600 uppercase tracking-[0.18em] mt-1">
                 Team of CA &amp; Tax Experts
               </span>
             </div>
+
           </motion.a>
 
           {/* Desktop Nav */}

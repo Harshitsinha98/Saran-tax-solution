@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   Phone,
   MessageCircle,
@@ -149,10 +150,25 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-4">
-          <p className="text-xs text-dark-400 mb-4 md:mb-0">
-            © 2024 Saran Tax Solution. All rights reserved.
-          </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 text-center sm:text-left">
+            <p className="text-xs text-dark-400">
+              © 2024 Saran Tax Solution. All rights reserved.
+            </p>
+            <div className="flex items-center gap-3 text-xs text-dark-400">
+              <Link to="/privacy-policy" className="hover:text-primary-600 transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-dark-300">•</span>
+              <Link to="/terms-conditions" className="hover:text-primary-600 transition-colors">
+                Terms &amp; Conditions
+              </Link>
+              <span className="text-dark-300">•</span>
+              <Link to="/sitemap" className="hover:text-primary-600 transition-colors">
+                Sitemap
+              </Link>
+            </div>
+          </div>
 
           <button
             onClick={scrollToTop}
