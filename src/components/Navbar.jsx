@@ -6,11 +6,11 @@ const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
   { name: 'Why Us', href: '#why-us' },
-  { name: 'About', href: '#about' },
   { name: 'Process', href: '#process' },
   { name: 'Reviews', href: '#testimonials' },
-  { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
+  { name: 'About', href: '#about' },
+  { name: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar() {
@@ -55,7 +55,7 @@ export default function Navbar() {
                 Saran Tax Solution
               </span>
               <span className="hidden sm:block text-[10px] font-medium text-primary-600 uppercase tracking-[0.18em] mt-1">
-                Team of CA &amp; Tax Experts
+                Team of CA &amp; Advocates
               </span>
             </div>
 
