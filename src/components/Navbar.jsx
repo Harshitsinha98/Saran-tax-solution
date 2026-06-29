@@ -29,13 +29,20 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'py-3 bg-white/95 backdrop-blur-2xl border-b border-dark-100 shadow-sm shadow-dark-100/60'
-            : 'py-5 bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50"
       >
-        <div className="container-custom flex items-center justify-between">
+        <div
+          className={`mx-3 mt-3 lg:mx-0 lg:mt-0 rounded-2xl lg:rounded-none bg-white shadow-md shadow-dark-200/15 lg:shadow-none transition-all duration-500 ${
+            scrolled
+              ? 'lg:bg-white/95 lg:backdrop-blur-2xl lg:border-b lg:border-dark-100 lg:shadow-sm lg:shadow-dark-100/60'
+              : 'lg:bg-transparent'
+          }`}
+        >
+          <div
+            className={`container-custom flex items-center justify-between py-2.5 transition-all duration-500 ${
+              scrolled ? 'lg:py-3' : 'lg:py-5'
+            }`}
+          >
           {/* Logo */}
           <motion.a
             href="#home"
@@ -55,7 +62,7 @@ export default function Navbar() {
                 Saran Tax Solution
               </span>
               <span className="hidden sm:block text-[10px] font-medium text-primary-600 uppercase tracking-[0.18em] mt-1">
-                Team of CA &amp; Advocates
+                Team of CA &amp; Tax Experts
               </span>
             </div>
 
@@ -79,7 +86,7 @@ export default function Navbar() {
           </div>
 
           {/* CTA + Mobile Menu */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <motion.a
               href="tel:+919852239281"
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 transition-all duration-300 shadow-sm shadow-primary-500/30 relative overflow-hidden group"
@@ -93,10 +100,11 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2.5 rounded-xl text-dark-700 hover:bg-dark-100 transition-colors"
+              className="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-dark-50 border border-dark-100 text-dark-700 hover:bg-dark-100 transition-colors flex-shrink-0"
             >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileOpen ? <X size={19} /> : <Menu size={19} />}
             </button>
+          </div>
           </div>
         </div>
       </motion.nav>
@@ -109,7 +117,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-[72px] z-40 p-4 lg:hidden"
+            className="fixed inset-x-0 top-[78px] z-40 px-3 pb-3 lg:hidden"
           >
             <div className="bg-white border border-dark-100 rounded-2xl p-6 space-y-1 shadow-xl shadow-dark-200/30">
               {navLinks.map((link, i) => (
