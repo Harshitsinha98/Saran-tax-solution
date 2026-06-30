@@ -12,38 +12,157 @@ const GOOGLE_PLACE_ID = 'ChIJCe7lvZy7kjkRcN_1qmos-A0'
 const REVIEWS_ENDPOINT = '/api/google-reviews'
 const REFRESH_INTERVAL_MS = 60 * 60 * 1000 // re-check once an hour
 
-// Sample data shaped exactly like what the Google Places API returns, so
-// swapping in real data later requires zero changes to the UI below.
+// Real reviews copied from the Google Business Profile (only the ones that
+// had actual written text — star-only reviews with no comment are excluded
+// since there's nothing to show in the card). This list is the permanent
+// source for review text; rating/total below get overridden live by the
+// API, but the review text list itself stays static — Google's API only
+// ever returns 5 reviews max, so a hand-curated list beats that limit for
+// free, with zero ongoing subscription cost.
 const FALLBACK_REVIEWS = [
   {
-    author_name: 'Rajesh Kumar',
+    author_name: 'Rajan Kumar',
     rating: 5,
-    relative_time_description: '2 weeks ago',
-    text: 'Saran Tax Solution made my GST registration and filing absolutely hassle-free. Shivam sir explained everything clearly and filed my returns on time. Highly recommended!',
+    relative_time_description: 'Just now',
+    text: 'Very professional and reliable service. My work was completed on time, and every step of the process was clearly explained. Overall, it was a very good experience. Highly satisfied!',
   },
   {
-    author_name: 'Priya Singh',
+    author_name: 'Arpitraj Srivastava',
     rating: 5,
-    relative_time_description: '3 weeks ago',
-    text: 'I was struggling with tax notices and penalties. The team handled everything professionally and resolved all my issues. Their legal expertise really makes a difference.',
+    relative_time_description: '3 months ago',
+    text: 'Very helpful place for Income Tax and GST related work. The process was explained clearly and work was completed on time. Highly recommended.',
   },
   {
-    author_name: 'Amit Verma',
+    author_name: 'Akku Sri',
     rating: 5,
-    relative_time_description: 'a month ago',
-    text: 'Best tax consultancy service in the region. Affordable pricing, quick turnaround, and excellent support. They handle my TDS and ITR filings every quarter without any delays.',
+    relative_time_description: '3 months ago',
+    text: 'Very good service for class 3 digital signature. The whole process was explained clearly.',
   },
   {
-    author_name: 'Sunita Devi',
+    author_name: 'Kamala Devi',
     rating: 5,
-    relative_time_description: 'a month ago',
-    text: 'Very professional and trustworthy service. They helped me get my Digital Signature and GST registration done in just 2 days. Excellent communication throughout the process.',
+    relative_time_description: '3 months ago',
+    text: 'Nice, fully satisfied with the quality of services delivered by this firm. Keep it up!',
   },
   {
-    author_name: 'Mohammad Irfan',
+    author_name: 'Yashvi Kapoor',
     rating: 5,
-    relative_time_description: '2 months ago',
-    text: 'Shivam sir is not just an accountant — he is a legal advisor who truly cares about his clients. His balance sheet preparation helped me get my business loan approved quickly.',
+    relative_time_description: '3 months ago',
+    text: 'Great experience, filing done in 1 hour.',
+  },
+  {
+    author_name: 'Radha Sinha',
+    rating: 5,
+    relative_time_description: '3 months ago',
+    text: 'Very good service.',
+  },
+  {
+    author_name: 'Intesar',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'Excellent service and good communication. They guide step by step and provide the right solution. Very reliable and trusted consultant service. Will surely recommend to others.',
+  },
+  {
+    author_name: 'Ayush Nath',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'My GST registration was completed within just 2 hours. The entire process was quick and hassle-free. I received proper guidance and professional support throughout. Highly satisfied with the service.',
+  },
+  {
+    author_name: 'Rohan Kumar',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'Very good 👍 service and well response person.',
+  },
+  {
+    author_name: 'Ritik Kumar',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'Best office for tax related work.',
+  },
+  {
+    author_name: 'Rishu Ranjan',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'Very good service.',
+  },
+  {
+    author_name: 'Amarnath Gupta',
+    rating: 5,
+    relative_time_description: '4 months ago',
+    text: 'Very fast service.',
+  },
+  {
+    author_name: 'Harshit Sinha',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Saran Tax Solution is one of the leading GST service providers. With a team of experts, they handle all GST related queries very quickly and professionally. The charges are also very affordable, and once onboarded, their dedicated team ensures the needs are fulfilled from start to end.',
+  },
+  {
+    author_name: 'Nikhil Pandit',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Great support and quick response. My work was done online without any hassle. Very convenient and trustworthy service.',
+  },
+  {
+    author_name: 'Shreya Srivastava',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Very knowledgeable and polite person. Business compliance work was done properly and on time. Charges are reasonable and service quality is excellent.',
+  },
+  {
+    author_name: 'Dipak',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Best place for hassle-free tax services and return filing — professional, reliable, and always on time. 😊',
+  },
+  {
+    author_name: 'Hamid Raza',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'If you are looking for the best taxation service, you must go for Saran Tax Solution.',
+  },
+  {
+    author_name: 'Basant Kr. Sharma',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Good service & response.',
+  },
+  {
+    author_name: 'Krish Gaurav',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Awesome.',
+  },
+  {
+    author_name: 'Aditya Kumar',
+    rating: 5,
+    relative_time_description: '5 months ago',
+    text: 'Okay.',
+  },
+  {
+    author_name: 'Ranjana Sinha',
+    rating: 5,
+    relative_time_description: '7 months ago',
+    text: 'My experience at this tax office was outstanding. The process to submit my documents was incredibly smooth and efficient. The office was clean, the wait time was minimal (less than 10 minutes), and the overall professionalism was commendable. A truly pleasant and effective experience.',
+  },
+  {
+    author_name: 'Shiwangi Harshit Sinha',
+    rating: 5,
+    relative_time_description: '7 months ago',
+    text: 'My visit to the tax office was excellent. I was assisted by a very knowledgeable and courteous officer who clarified all my queries regarding tax deductions. The entire process was efficient, and my work was completed in under 20 minutes. Highly recommend this office for their professional service. 🤗✌️',
+  },
+  {
+    author_name: 'Uttam Kumar',
+    rating: 5,
+    relative_time_description: '7 months ago',
+    text: 'It is a helpful and trustworthy firm for tax and financial services. They make filing taxes easy and give clear advice for managing money and business accounts. Keep growing 👍',
+  },
+  {
+    author_name: 'Rohit Kumar',
+    rating: 5,
+    relative_time_description: '7 months ago',
+    text: 'Good services in valuable times.',
   },
 ]
 
@@ -103,28 +222,26 @@ export default function Testimonials() {
   useEffect(() => {
     let isMounted = true
 
-    const loadReviews = async () => {
+    // Only the rating + total count are pulled live — the review text list
+    // above is hand-curated and stays put, since Google's API caps reviews
+    // at 5 regardless of how many the business actually has.
+    const loadLiveRating = async () => {
       try {
         const res = await fetch(REVIEWS_ENDPOINT)
         if (!res.ok) throw new Error('Reviews endpoint not available yet')
         const data = await res.json()
-        if (isMounted && Array.isArray(data.reviews) && data.reviews.length > 0) {
-          setReviews(data.reviews)
-          setSummary({
-            rating: data.rating ?? FALLBACK_SUMMARY.rating,
-            total: data.total ?? data.reviews.length,
-          })
+        if (isMounted && typeof data.rating === 'number' && typeof data.total === 'number') {
+          setSummary({ rating: data.rating, total: data.total })
           setIsLive(true)
-          setCurrent(0)
         }
       } catch {
         // Backend not deployed yet, or the request failed — keep showing the
-        // sample reviews above so the section never breaks for visitors.
+        // static rating/total so the section never breaks for visitors.
       }
     }
 
-    loadReviews()
-    const interval = setInterval(loadReviews, REFRESH_INTERVAL_MS)
+    loadLiveRating()
+    const interval = setInterval(loadLiveRating, REFRESH_INTERVAL_MS)
     return () => {
       isMounted = false
       clearInterval(interval)
