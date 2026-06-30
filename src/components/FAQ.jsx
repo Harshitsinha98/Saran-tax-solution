@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: 'How much do your services cost?',
-    answer: 'Our services are designed to be affordable for businesses of all sizes. GST and ITR services start at just ₹499/-, TDS services at ₹799/-, Digital Signature at ₹999/-, and Balance Sheet preparation at ₹1999/-. Contact us for a custom quote based on your specific needs.',
+    answer: 'Our services are designed to be affordable for businesses of all sizes. GST Registration and ITR Filing start at just ₹599/-, Food License registration starts at ₹999/-, Digital Signature starts at ₹999/-, and Balance Sheet preparation starts at ₹1,999/-. Contact us for a custom quote based on your specific needs.',
   },
   {
     question: 'Which areas do you serve?',

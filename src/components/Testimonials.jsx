@@ -3,13 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, BadgeCheck, RefreshCw, Quote } from 'lucide-react'
 
 // ── Live data configuration ────────────────────────────────────────────────
-// 1. Create/locate your Google Business Profile "Place ID" (search.google.com
-//    or via the Place ID Finder tool) and paste it below.
-// 2. Deploy the serverless function from `google-reviews-api/` (see the
-//    README included alongside it) so REVIEWS_ENDPOINT returns live data.
-// Until both are done, this component quietly falls back to the sample
+// Place ID confirmed for Saran Tax Solution, Nehru Chowk, Chapra, Bihar.
+// To go fully live: deploy app/api/google-reviews/route.js (see route.js)
+// and set GOOGLE_PLACE_ID + GOOGLE_PLACES_API_KEY as env vars on your host.
+// Until the API key is set, this component quietly falls back to the sample
 // reviews below — nothing breaks, it just won't be "live" yet.
-const GOOGLE_PLACE_ID = '' // e.g. 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+const GOOGLE_PLACE_ID = 'ChIJCe7lvZy7kjkRcN_1qmos-A0'
 const REVIEWS_ENDPOINT = '/api/google-reviews'
 const REFRESH_INTERVAL_MS = 60 * 60 * 1000 // re-check once an hour
 
@@ -48,7 +47,11 @@ const FALLBACK_REVIEWS = [
   },
 ]
 
-const FALLBACK_SUMMARY = { rating: 4.9, total: 1000 }
+// Matches your actual Google Business Profile right now: 5.0★, 47 reviews.
+// Once the live API is connected, this gets overridden automatically by
+// the real numbers — but until then, visitors see the correct figures
+// instead of placeholder ones.
+const FALLBACK_SUMMARY = { rating: 5.0, total: 47 }
 
 const AVATAR_GRADIENTS = [
   'from-blue-500 to-blue-700',
@@ -84,7 +87,7 @@ function Stars({ rating, size = 16 }) {
         <Star
           key={i}
           size={size}
-          className={i < rating ? 'text-accent-gold fill-accent-gold' : 'text-dark-200 fill-dark-200'}
+          style={{ fill: '#D4AF37', color: '#D4AF37' }}
         />
       ))}
     </div>

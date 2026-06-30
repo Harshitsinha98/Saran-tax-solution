@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ArrowDown, Phone, MessageCircle, Shield, Users, Award, CheckCircle2, Zap } from 'lucide-react'
+import { ArrowRight, ArrowDown, MessageCircle, Shield, Users, Award, CheckCircle2, Zap } from 'lucide-react'
+
+// Single source of truth for the WhatsApp CTA — change the number or
+// pre-filled message here and every link using WHATSAPP_LINK updates.
+const WHATSAPP_LINK = `https://wa.me/919852239281?text=${encodeURIComponent(
+  "Hello! I'd like to get started with my tax filing."
+)}`
 
 export default function Hero() {
   return (
@@ -50,7 +56,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light mb-8"
           >
             <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-sm text-slate-600 font-medium">Trusted by 1000+ Businesses Across Bihar & UP</span>
+            <span className="text-sm text-slate-600 font-medium">Trusted by 1000+ Businesses Across PAN India</span>
           </motion.div>
 
           {/* Headline */}
@@ -76,34 +82,25 @@ export default function Hero() {
             with the precision of a tax lawyer and the care of a trusted partner.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button — single, WhatsApp-linked */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex items-center justify-center mb-16"
           >
             <motion.a
-              href="tel:+919852239281"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary relative overflow-hidden group flex items-center gap-3"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
               <span className="absolute inset-0 bg-white/15 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out skew-x-12" />
-              <Phone size={18} className="relative z-10" />
-              <span className="relative z-10">Call Now</span>
+              <MessageCircle size={18} className="relative z-10" />
+              <span className="relative z-10">Start in One Click</span>
               <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
-
-            {/* Adjusted WhatsApp Button for Light Theme */}
-            <motion.a
-              href="https://wa.me/+919852239281"
-              className="btn-secondary flex items-center gap-3 group !border-green-200 !bg-green-50 hover:!bg-green-100"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <MessageCircle size={18} className="text-green-600" />
-              <span className="text-green-700 font-semibold">WhatsApp Us</span>
             </motion.a>
           </motion.div>
 
@@ -158,8 +155,8 @@ export default function Hero() {
                 <Zap size={18} className="text-blue-600" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 font-medium">Starts at just</p>
-                <p className="text-sm font-bold text-slate-800">₹499/-</p>
+                <p className="text-xs text-slate-500 font-medium">Get Started</p>
+                <p className="text-sm font-bold text-slate-800">In One Click</p>
               </div>
             </div>
           </div>

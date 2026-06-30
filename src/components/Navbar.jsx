@@ -62,7 +62,7 @@ export default function Navbar() {
                 Saran Tax Solution
               </span>
               <span className="hidden sm:block text-[10px] font-medium text-primary-600 uppercase tracking-[0.18em] mt-1">
-                Team of CA &amp; Tax Experts
+                A Team of CA &amp; Advocates
               </span>
             </div>
 

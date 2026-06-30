@@ -62,7 +62,7 @@ export default function Loader() {
             Saran Tax Solution
           </h1>
           <p className="text-dark-400 text-sm tracking-wider uppercase">
-            Team of CA & Advocates
+            A Team of CA & Advocates
           </p>
         </motion.div>
 

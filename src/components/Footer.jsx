@@ -112,7 +112,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={15} className="text-primary-500 flex-shrink-0" />
-                info@sarantaxsolution.com
+                sts841301@gmail.com
               </li>
               <li className="flex items-center gap-2.5">
                 <Clock size={15} className="text-primary-500 flex-shrink-0" />
