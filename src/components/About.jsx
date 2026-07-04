@@ -12,6 +12,9 @@ import {
   Phone,
   MessageCircle,
   ArrowRight,
+  FileSpreadsheet,
+  ClipboardCheck,
+  Award,
 } from 'lucide-react'
 
 const team = [
@@ -55,6 +58,48 @@ const team = [
     bio: [
       "I'm an Accounting and Compliance professional with strong experience across GST, TDS, payroll, and end-to-end accounting — with hands-on expertise in Zoho Books, Zoho Payroll, and Tally.",
       'My work covers GST returns, TDS compliance, payroll processing, data migration, and reconciliation of balance sheets and P&L accounts, always with an eye for accuracy and timely compliance.',
+    ],
+  },
+  {
+    name: 'Nikhil Kumar',
+    credentials: 'B.Com',
+    role: 'Accounting & Taxation Executive',
+    eyebrowClasses: 'text-amber-700 bg-amber-50 border-amber-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['GST & ITR', 'Tally & Excel', 'AI Accounting'],
+    image: '/nikhil-kumar.png',
+    avatarGradient: 'from-amber-500 to-amber-700',
+    pillClasses: [
+      'bg-amber-50 border-amber-200 text-amber-700',
+      'bg-emerald-50 border-emerald-200 text-emerald-700',
+      'bg-primary-50 border-primary-200 text-primary-700',
+    ],
+    floatingTop: { icon: FileSpreadsheet, label: 'Accounting Expert', iconColor: 'text-amber-600' },
+    floatingBottom: { icon: GraduationCap, label: 'B.Com Qualified', iconColor: 'text-primary-600' },
+    bio: [
+      "I'm an Accounting and Taxation professional with practical experience in GST, ITR, TDS, Tally, Excel, and AI-based accounting solutions. My expertise includes end-to-end bookkeeping, return filing, financial reporting, and compliance management.",
+      'My work covers Profit & Loss analysis, Balance Sheet preparation, Data Reconciliation, GST compliance, Income Tax filing, and digital services through Cyber Cafe operations. I focus on accuracy, timely compliance, and smart financial solutions for individuals and businesses.',
+    ],
+  },
+  {
+    name: 'Raj Kishore',
+    credentials: '',
+    role: 'Tax Executive',
+    eyebrowClasses: 'text-indigo-700 bg-indigo-50 border-indigo-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['GST Registration', 'MSME & DSC', 'Business Compliance'],
+    image: '/raj-kishore.jpeg',
+    avatarGradient: 'from-indigo-500 to-indigo-700',
+    pillClasses: [
+      'bg-indigo-50 border-indigo-200 text-indigo-700',
+      'bg-violet-50 border-violet-200 text-violet-700',
+      'bg-primary-50 border-primary-200 text-primary-700',
+    ],
+    floatingTop: { icon: ClipboardCheck, label: 'Registration Expert', iconColor: 'text-indigo-600' },
+    floatingBottom: { icon: Award, label: 'Compliance Focused', iconColor: 'text-indigo-600' },
+    bio: [
+      'Raj Kishore is a dedicated Tax Executive at Saran Tax Solution, specializing in business registration and tax compliance services. He assists clients with GST Registration, FSSAI Registration, MSME (Udyam) Registration, Digital Signature Certificate (DSC) processing, and other statutory registrations.',
+      'With a client-focused approach, he ensures that every application is prepared accurately and submitted on time. He is committed to providing prompt support, maintaining proper documentation, and helping businesses complete regulatory formalities smoothly. His attention to detail and professional work ethic contribute to delivering reliable and efficient services to our clients.',
     ],
   },
 ]
@@ -154,7 +199,9 @@ export default function OurTeam() {
                         <h3 className="text-2xl font-display font-bold text-dark-900 mb-1">
                           {member.name}
                         </h3>
-                        <p className="text-primary-600 font-semibold mb-4">{member.credentials}</p>
+                        {member.credentials && (
+                          <p className="text-primary-600 font-semibold mb-4">{member.credentials}</p>
+                        )}
 
                         <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
                           {member.tags.map((tag, ti) => (

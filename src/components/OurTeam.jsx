@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer'
 import {
   Scale,
   Calculator,
+  GraduationCap,
+  MapPin,
   Quote,
   Facebook,
   Instagram,
@@ -10,20 +12,28 @@ import {
   Phone,
   MessageCircle,
   ArrowRight,
+  FileSpreadsheet,
+  ClipboardCheck,
+  Award,
 } from 'lucide-react'
 
 const team = [
   {
     name: 'Shivam Srivastava',
     credentials: 'LL.B.',
-    role: 'Tax Lawyer & Consultant',
-    badge: 'Founder',
-    image:
-      'https://sarantaxsolution.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-31-at-7.03.40-PM.jpeg',
-    icon: Scale,
-    iconBg: 'bg-primary-50 border-primary-200',
-    iconColor: 'text-primary-600',
-    badgeClasses: 'bg-primary-50 text-primary-700 border-primary-200',
+    role: 'Founder & Tax Lawyer',
+    eyebrowClasses: 'text-primary-700 bg-primary-50 border-primary-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['Income Tax Law', 'GST Advisory', 'Legal Consultancy'],
+    image: '/shivam-srivastava.jpg',
+    avatarGradient: 'from-primary-500 to-primary-700',
+    pillClasses: [
+      'bg-primary-50 border-primary-200 text-primary-700',
+      'bg-violet-50 border-violet-200 text-violet-700',
+      'bg-emerald-50 border-emerald-200 text-emerald-700',
+    ],
+    floatingTop: { icon: Scale, label: 'Tax Law Expert', iconColor: 'text-primary-600' },
+    floatingBottom: { icon: GraduationCap, label: 'LL.B. Qualified', iconColor: 'text-primary-600' },
     bio: [
       "I'm a Tax Lawyer and Consultant, and the founder of Saran Tax Solution. I specialise in tax and legal consultancy for individuals, professionals, and businesses — with a focus on accuracy, transparency, and compliance.",
       'With a strong grounding in Income Tax law, GST, and legal procedure, I help clients manage their tax responsibilities efficiently and confidently, offering practical solutions and ethical advice tailored to every client.',
@@ -33,16 +43,63 @@ const team = [
     name: 'Intesar Alam',
     credentials: 'B.Com',
     role: 'Accountant',
-    badge: null,
-    image:
-      'https://sarantaxsolution.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-31-at-6.34.07-PM.jpeg',
-    icon: Calculator,
-    iconBg: 'bg-emerald-50 border-emerald-200',
-    iconColor: 'text-emerald-600',
-    badgeClasses: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    eyebrowClasses: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['GST & TDS', 'Payroll Expert', 'Zoho & Tally'],
+    image: '/intesar-alam.jpg',
+    avatarGradient: 'from-emerald-500 to-emerald-700',
+    pillClasses: [
+      'bg-emerald-50 border-emerald-200 text-emerald-700',
+      'bg-primary-50 border-primary-200 text-primary-700',
+      'bg-violet-50 border-violet-200 text-violet-700',
+    ],
+    floatingTop: { icon: Calculator, label: 'Accounting Expert', iconColor: 'text-emerald-600' },
+    floatingBottom: { icon: GraduationCap, label: 'B.Com Qualified', iconColor: 'text-primary-600' },
     bio: [
       "I'm an Accounting and Compliance professional with strong experience across GST, TDS, payroll, and end-to-end accounting — with hands-on expertise in Zoho Books, Zoho Payroll, and Tally.",
       'My work covers GST returns, TDS compliance, payroll processing, data migration, and reconciliation of balance sheets and P&L accounts, always with an eye for accuracy and timely compliance.',
+    ],
+  },
+  {
+    name: 'Nikhil Kumar',
+    credentials: 'B.Com',
+    role: 'Accounting & Taxation Executive',
+    eyebrowClasses: 'text-amber-700 bg-amber-50 border-amber-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['GST & ITR', 'Tally & Excel', 'AI Accounting'],
+    image: '/nikhil-kumar.png',
+    avatarGradient: 'from-amber-500 to-amber-700',
+    pillClasses: [
+      'bg-amber-50 border-amber-200 text-amber-700',
+      'bg-emerald-50 border-emerald-200 text-emerald-700',
+      'bg-primary-50 border-primary-200 text-primary-700',
+    ],
+    floatingTop: { icon: FileSpreadsheet, label: 'Accounting Expert', iconColor: 'text-amber-600' },
+    floatingBottom: { icon: GraduationCap, label: 'B.Com Qualified', iconColor: 'text-primary-600' },
+    bio: [
+      "I'm an Accounting and Taxation professional with practical experience in GST, ITR, TDS, Tally, Excel, and AI-based accounting solutions. My expertise includes end-to-end bookkeeping, return filing, financial reporting, and compliance management.",
+      'My work covers Profit & Loss analysis, Balance Sheet preparation, Data Reconciliation, GST compliance, Income Tax filing, and digital services through Cyber Cafe operations. I focus on accuracy, timely compliance, and smart financial solutions for individuals and businesses.',
+    ],
+  },
+  {
+    name: 'Raj Kishore',
+    credentials: '',
+    role: 'Tax Executive',
+    eyebrowClasses: 'text-indigo-700 bg-indigo-50 border-indigo-200',
+    location: 'Saran (Chapra), Bihar',
+    tags: ['GST Registration', 'MSME & DSC', 'Business Compliance'],
+    image: '/raj-kishore.jpeg',
+    avatarGradient: 'from-indigo-500 to-indigo-700',
+    pillClasses: [
+      'bg-indigo-50 border-indigo-200 text-indigo-700',
+      'bg-violet-50 border-violet-200 text-violet-700',
+      'bg-primary-50 border-primary-200 text-primary-700',
+    ],
+    floatingTop: { icon: ClipboardCheck, label: 'Registration Expert', iconColor: 'text-indigo-600' },
+    floatingBottom: { icon: Award, label: 'Compliance Focused', iconColor: 'text-indigo-600' },
+    bio: [
+      'Raj Kishore is a dedicated Tax Executive at Saran Tax Solution, specializing in business registration and tax compliance services. He assists clients with GST Registration, FSSAI Registration, MSME (Udyam) Registration, Digital Signature Certificate (DSC) processing, and other statutory registrations.',
+      'With a client-focused approach, he ensures that every application is prepared accurately and submitted on time. He is committed to providing prompt support, maintaining proper documentation, and helping businesses complete regulatory formalities smoothly. His attention to detail and professional work ethic contribute to delivering reliable and efficient services to our clients.',
     ],
   },
 ]
@@ -63,7 +120,7 @@ export default function OurTeam() {
   return (
     <>
       {/* Page Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section id="about" className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-blue-400/15 rounded-full blur-[120px]"
@@ -113,52 +170,103 @@ export default function OurTeam() {
 
         <div className="container-custom relative z-10">
           {/* Team members */}
-          <div ref={ref} className="space-y-10 md:space-y-12 mb-20">
+          <div ref={ref} className="space-y-20 md:space-y-28 mb-20">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.15, duration: 0.6 }}
-                className={`flex flex-col ${
-                  i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } items-center gap-8 md:gap-12 bg-white border border-dark-100 shadow-sm rounded-3xl p-6 md:p-10`}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
               >
-                {/* Photo */}
-                <div className="flex-shrink-0">
-                  <div className="w-44 h-44 md:w-56 md:h-56 rounded-3xl overflow-hidden border border-dark-100 shadow-md">
-                    <img
-                      src={member.image}
-                      alt={`${member.name} - ${member.role}`}
-                      className="w-full h-full object-cover"
-                    />
+                {/* Visual card */}
+                <div className={`relative ${i % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className="relative">
+                    {/* Main card */}
+                    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary-50 via-white to-violet-50 border border-dark-100 shadow-xl shadow-dark-200/25 p-8 md:p-12">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-accent-violet/5" />
+
+                      <div className="relative z-10 text-center">
+                        {/* Avatar */}
+                        <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-primary-500/30">
+                          <img
+                            src={member.image}
+                            alt={`${member.name} - ${member.role}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        <h3 className="text-2xl font-display font-bold text-dark-900 mb-1">
+                          {member.name}
+                        </h3>
+                        {member.credentials && (
+                          <p className="text-primary-600 font-semibold mb-4">{member.credentials}</p>
+                        )}
+
+                        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+                          {member.tags.map((tag, ti) => (
+                            <span
+                              key={tag}
+                              className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${member.pillClasses[ti % member.pillClasses.length]}`}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center justify-center gap-2 text-dark-500 text-sm">
+                          <MapPin size={14} />
+                          <span>{member.location}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Floating badges */}
+                    <motion.div
+                      className="absolute -top-4 -right-4 md:top-4 md:-right-6"
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                      <div className="bg-white border border-dark-100 shadow-lg rounded-xl p-3">
+                        <div className="flex items-center gap-2">
+                          <member.floatingTop.icon size={16} className={member.floatingTop.iconColor} />
+                          <span className="text-xs font-semibold text-dark-800">{member.floatingTop.label}</span>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute -bottom-4 -left-4 md:bottom-4 md:-left-6"
+                      animate={{ y: [0, 8, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                    >
+                      <div className="bg-white border border-dark-100 shadow-lg rounded-xl p-3">
+                        <div className="flex items-center gap-2">
+                          <member.floatingBottom.icon size={16} className={member.floatingBottom.iconColor} />
+                          <span className="text-xs font-semibold text-dark-800">{member.floatingBottom.label}</span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-3">
-                    <div className={`w-10 h-10 rounded-xl ${member.iconBg} border flex items-center justify-center`}>
-                      <member.icon size={18} className={member.iconColor} />
-                    </div>
-                    {member.badge && (
-                      <span
-                        className={`text-xs font-medium uppercase tracking-wider px-3 py-1 rounded-full border ${member.badgeClasses}`}
-                      >
-                        {member.badge}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-2xl font-display font-bold text-dark-900 mb-1">
-                    {member.name}{' '}
-                    <span className="text-dark-400 font-normal text-lg">({member.credentials})</span>
+                <div className={i % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
+                  <span
+                    className={`inline-block px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider border mb-4 ${member.eyebrowClasses}`}
+                  >
+                    {member.role}
+                  </span>
+
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-dark-900 mb-6">
+                    Meet <span className="gradient-text">{member.name.split(' ')[0]}</span>
                   </h3>
-                  <p className="text-primary-600 font-medium mb-4">{member.role}</p>
-                  {member.bio.map((para, j) => (
-                    <p key={j} className="text-dark-600 text-sm leading-relaxed mb-3 last:mb-0">
-                      {para}
-                    </p>
-                  ))}
+
+                  <div className="space-y-4 text-dark-600 leading-relaxed">
+                    {member.bio.map((para, j) => (
+                      <p key={j}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
