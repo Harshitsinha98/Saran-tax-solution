@@ -65,6 +65,7 @@ function App() {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="/team" element={<OurTeam />} />
             </Routes>
           </main>
           <Footer />
