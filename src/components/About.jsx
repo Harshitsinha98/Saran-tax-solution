@@ -67,7 +67,7 @@ const team = [
     eyebrowClasses: 'text-amber-700 bg-amber-50 border-amber-200',
     location: 'Saran (Chapra), Bihar',
     tags: ['GST & ITR', 'Tally & Excel', 'AI Accounting'],
-    image: '/nikhil-kumar.png',
+    image: '/nikhil-kumar.jpg',
     avatarGradient: 'from-amber-500 to-amber-700',
     pillClasses: [
       'bg-amber-50 border-amber-200 text-amber-700',
